@@ -38,13 +38,14 @@ const getOneComment = async(commentID) => {
 
 // 대댓글 입력과 댓글 입력은 replyID로 구분한다.
 const postComment = async(cHistoryID, userID, content, replyID) => {
-    let sql = `INSERT INTO comment (cHistoryID, userID, content, date , replyID)
-    VALUES (${cHistoryID}, ${userID}, ${content}, NOW(), ${replyID})`;
-
+    let sql = `INSERT INTO comment
+    (cHistoryID, userID, content, date , replyID)`
+    
     let [rows, fields] = await db.query(sql);
-
     console.log(rows);
 };
+
+
 
 // 댓글 수정
 const editComment = async(commentID, cHistoryID, content) => {
@@ -68,11 +69,23 @@ const deleteComment = async(commentID, cHistoryID) => {
     console.log(rows);
 };
 
+const getCountOfComment = async(cHistoryID) => {
+    let sql = `SELECT COUNT(*) count
+    FROM comment c
+    WHERE c.cHistoryID = ${cHistoryID}`;
+
+    let [rows] = await db.query(sql);
+
+    return rows;
+}
+
+
 
 module.exports = {
     getComment,
     getOneComment,
     postComment,
     editComment,
-    deleteComment
+    deleteComment,
+    getCountOfComment
 }
