@@ -69,23 +69,10 @@ const deleteComment = async(commentID, cHistoryID) => {
 };
 
 
-
-const getCountOfComment = async(cHistoryID) => {
-    let sql = `SELECT COUNT(*) count
-    FROM comment c
-    WHERE c.cHistoryID = ${cHistoryID}`;
-
-    let [rows] = await db.query(sql);
-
-    return rows;
-}
-
-
 module.exports = {
     getComment,
     getOneComment,
     postComment,
     editComment,
-    deleteComment,
-    getCountOfComment
+    deleteComment
 }
