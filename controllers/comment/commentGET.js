@@ -3,7 +3,6 @@ const statusCode = require("../../constants/statusCode");
 const util = require("../../lib/util");
 const axios = require('axios');
 
-const userController = require("../user/userNicknameGET");
 const { commentDB } = require("../../models");
 const { client } = require("../../lib/api");
 
