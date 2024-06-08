@@ -14,7 +14,10 @@ spec:
     spec:
       containers:
       - name: comment
-        image: senzoo/comment:0.6
+        image: choiyoorim/comment:0.1
+        envFrom:
+        - secretRef:
+            name: comment-secret
         ports:
         - containerPort: 8081 # 내부 컨테이너 포트
         imagePullPolicy: Always
