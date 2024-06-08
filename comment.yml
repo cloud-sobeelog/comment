@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: comment
-        image: senzoo/comment:0.5
+        image: senzoo/comment:0.6
         ports:
         - containerPort: 8081 # 내부 컨테이너 포트
         imagePullPolicy: Always
