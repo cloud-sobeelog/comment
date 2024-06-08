@@ -39,8 +39,9 @@ const getOneComment = async(commentID) => {
 // 대댓글 입력과 댓글 입력은 replyID로 구분한다.
 const postComment = async(cHistoryID, userID, content, replyID) => {
     let sql = `INSERT INTO comment
-    (cHistoryID, userID, content, date , replyID)`
-    
+    (cHistoryID, userID, content, date, replyID)
+    VALUES (${cHistoryID}, ${userID}, ${content}, NOW(), ${replyID})`;
+
     let [rows, fields] = await db.query(sql);
     console.log(rows);
 };

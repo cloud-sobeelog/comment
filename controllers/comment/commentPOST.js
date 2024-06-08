@@ -5,7 +5,6 @@ const { commentDB } = require("../../models");
 
 module.exports = async (req, res) => {
     try {
-        console.log(req);
         const {cHistoryID} = req.params;
         let {userID, content, replyID} = req.body;
 
@@ -13,7 +12,7 @@ module.exports = async (req, res) => {
         if (replyID == 0) {
             replyID = null;
         }
-
+        console.log(content);
         // 글자 수 제한 확인
         if (content.length >= 150) {
             return res.status(statusCode.BAD_REQUEST)

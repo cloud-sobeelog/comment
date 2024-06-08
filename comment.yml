@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: comment
-        image: choiyoorim/comment:0.1
+        image: choiyoorim/comment:0.2
         envFrom:
         - secretRef:
             name: comment-secret
